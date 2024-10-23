@@ -1,2 +1,11 @@
-python:alpine3.19
-ubuntu
+# 普通镜像
+debian
+
+# 带版标签版本的镜像 (标签必须存在,每个镜像的标签版本名都不一样,具体叫什么得根据镜像实际存在的标签架构名而定,比如镜像有一个版本标签叫: bookworm-20241016-s1im)
+debian:bookworm-20241016-s1im
+
+# 指定系统架构的镜像 (架构必须存在镜像内,每个镜像的架构名都不一样,具体叫什么得根据镜像实际存在的架构名而定,比如有一个镜像的架构名和版本标签名叫: arm64v8 和 12.7)
+--platform=linux/arm64v8 debian:12.7
+
+# 私有仓库的镜像 (必须确保有权限获取保别人的私有仓库镜像,比如有个域名叫k8s.gcr.io,域名下有个仓库叫linux_system,仓库下有一个debian镜像,我们拉取镜像最新的一个版本并且是arm64架构)
+# --platform=linux/arm64 k8s.gcr.io/linux_system/debian:latest
